@@ -20,27 +20,65 @@
 
     <style>
         #mapid { height: 100vh; }
+        #divForm {
+            background-color: linen;
+            padding: 20px;
+            font-size: 16px;
+        }
     </style>           
        
 </head>
 <body>
-    <div id="side-bar" class="col-md-3"></div>
+    <div id="side-bar" class="col-md-3">
+            
+            <div id="divForm" class="col-xs-12">
+                <form>
+                  Project:<br>
+                  <input type="text" name="project" value="" >
+                  <br>
+                  Voltage:<br>
+                  <input type="text" name="voltage">
+                  <br>
+                  CP Number:<br>
+                  <input type="text" name="cp_number">
+                  <br>
+                  Surveyor:<br>
+                  <input type="text" name="surveyor">
+                  <br>
+                  Engineer:<br>
+                  <input type="text" name="engineer">
+                  <br>
+                  Other HVC Designer:<br>
+                  <input type="text" name="designer">
+                  <br>
+                  Job Number:<br>
+                  <input type="text" name="job_number">
+                  <br>
+                  <br><br>
+                  <button id="btnZoomLayer" class="btn btn-primary btn-block" disabled>Zoom to</button>
+                </form>
+            </div>
+
+
+
+        </div>
    <div id="mapid" class="col-md-12"></div>
    <script>
     var mymap;
-    var lyrOSM;
+    var lyrEsriWorld;
     var ctlSidebar;    
     var ctlEasyButton;
        
     $(document).ready(function(){
         var mymap = L.map('mapid').setView([53.577430, -7.812125], 8)
-        var lyrOSM = L.tileLayer.provider('Esri.WorldStreetMap').addTo(mymap);
+        var lyrEsriWorld = L.tileLayer.provider('Esri.WorldStreetMap').addTo(mymap);
+        
         ctlSidebar = L.control.sidebar('side-bar').addTo(mymap);
         ctlEasyButton = L.easyButton({
                     states: [{
                         stateName: 'open-sidebar',
                         icon:'glyphicon-triangle-right',
-                        title:'Open sidebar',
+                        title:'More detail',
                         onClick:function(control) {
                             ctlSidebar.show();
                             control.state('close-sidebar');
