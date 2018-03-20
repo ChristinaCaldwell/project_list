@@ -17,7 +17,7 @@
     <script src = "plugins/leaflet-providers.js"></script>
     <script src = "plugins/L.Control.Sidebar.js"></script>
     <script src = "plugins/easy-button.js"></script>
-
+    
     <style>
         #mapid { height: 100vh; }
         #divForm {
@@ -26,41 +26,58 @@
             font-size: 16px;
         }
     </style>           
-       
 </head>
 <body>
     <div id="side-bar" class="col-md-3">
             
             <div id="divForm" class="col-xs-12">
                 <form>
-                  Project:<br>
-                  <input type="text" name="project" value="" >
-                  <br>
-                  Voltage:<br>
-                  <input type="text" name="voltage">
-                  <br>
-                  CP Number:<br>
-                  <input type="text" name="cp_number">
-                  <br>
-                  Surveyor:<br>
-                  <input type="text" name="surveyor">
-                  <br>
-                  Engineer:<br>
-                  <input type="text" name="engineer">
-                  <br>
-                  Other HVC Designer:<br>
-                  <input type="text" name="designer">
-                  <br>
-                  Job Number:<br>
-                  <input type="text" name="job_number">
-                  <br>
-                  <br><br>
-                  <button id="btnZoomLayer" class="btn btn-primary btn-block" disabled>Zoom to</button>
+                    <label>Project:</label><br>
+                    <input type="text" name="project" value="" >
+                    <br>
+                    <label>Voltage:</label><br>
+                    <input type="text" name="voltage">
+                    <br>
+                    <label>CP Number:</label><br>
+                    <input type="text" name="cp_number">
+                    <br>
+                    <label>Surveyor:</label><br>
+                    <input type="text" name="surveyor">
+                    <br>
+                    <label>Engineer:</label><br>
+                    <input type="text" name="engineer">
+                    <br>
+                    <label>Other HVC Designer:</label><br>
+                    <input type="text" name="designer">
+                    <br>
+                    <label>Job Number:</label><br>
+                    <input type="text" name="job_number">
+                    <br>
+                    <label>Group:</label><br>
+                    <input type="text" name="group">
+                    <br>
+                    <label>Station Designer:</label><br>
+                    <input type="text" name="stn_designer">
+                    <br>
+                    <label>Civil Designer:</label><br>
+                    <input type="text" name="cvl_designer">
+                    <br>
+                    <label>OHL Designer:</label><br>
+                    <input type="text" name="ohl_deigner">
+                    <br>
+                    <label>Project Leader:</label><br>
+                    <input type="text" name="prj_leader">
+                    <br>
+                    <label>Client:</label><br>
+                    <input type="text" name="client">
+                    <br>
+                    <label>Remarks:</label><br>
+                    <textarea name="remarks" class ="form-control" placeholder="Comments about the project"></textarea>
+                    <br>
+                    <br><br>
+                    <button id="btnZoomLayer" class="btn btn-primary btn-block" disabled>Zoom to</button>
                 </form>
             </div>
-
-
-
         </div>
    <div id="mapid" class="col-md-12"></div>
    <script>
@@ -96,7 +113,5 @@
                 ctlEasyButton.addTo(mymap);
     });
     </script>
-   
-    
 </body>
 </html>
