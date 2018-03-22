@@ -14,9 +14,12 @@
        integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
        crossorigin=""></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="plugins/leaflet.ajax.min.js"></script>
     <script src = "plugins/leaflet-providers.js"></script>
     <script src = "plugins/L.Control.Sidebar.js"></script>
     <script src = "plugins/easy-button.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.SPServices/2014.02/jquery.SPServices-2014.02.min.js"></script>
     
     <style>
         #mapid { height: 100vh; }
@@ -83,6 +86,7 @@
    <script>
     var mymap;
     var lyrEsriWorld;
+    var lyrTest;
     var ctlSidebar;    
     var ctlEasyButton;
        
@@ -111,7 +115,26 @@
                       }]
                     });
                 ctlEasyButton.addTo(mymap);
+        lyrTest = L.geoJSON.ajax('test1.geojson').addTo(mymap);
+        
+        $().SPServices({
+        operation:"GetListCollection",
+        webURL: myListURL,
+        async:false,
+        completefunc: function(xData, Status) {
+            $(xData.responseXML).find("List").each(function(){
+                //for each list: get the title, type, and id
+                listType = $(this).attr("BaseType");
+                listID = $(this).attr("ID");
+                listTitle = $(this).attr("Title");
+                listDesc = $(this).attr("Description");
+            })
+        }}
+    );
     });
+       
+
+       
     </script>
 </body>
 </html>
